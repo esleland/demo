@@ -1,0 +1,37 @@
+body
+  a(href='/') Go back to the index
+  p
+  #chart_voltage
+  p
+  #chart_efficiency
+  script(src='/javascripts/dygraph-combined.js')
+  script
+    var data_path = "/data/test_mn_meta.csv"
+    g1 = new Dygraph(
+      document.getElementById("chart_voltage"),
+      data_path,
+      {
+        title: 'Potential per cycle',
+        ylabel: 'Voltage (V)',
+        xlabel: 'Cycle number',
+        legend: 'always',
+        showRangeSelector: true,
+        visibility: [false, false, true, true, true, true, +
+          false, false, false, false, false, false, false, false]
+      }
+    );
+
+    g2 = new Dygraph(
+        document.getElementById("chart_efficiency"),
+        data_path,
+        {
+          title: 'Charge and energy efficiency per cycle',
+          ylabel: 'Efficiency',
+          xlabel: 'Cycle number',
+          legend: 'always',
+          showRangeSelector: true,
+          visibility: [false, false, false, false, false, false, +
+            true, true, false, false, false, false, false, false]
+        }
+      );
+          
