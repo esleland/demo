@@ -20,3 +20,7 @@ exports.googleannotated = function(req,res){
 exports.dygraphs = function(req,res){
 	res.render('dygraphs', {title: 'Dygraphs'})
 }
+
+exports.dygraphs2 = function(req,res){
+	res.render('dygraphs2', {title: 'Dygraphs2'})
+}
