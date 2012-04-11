@@ -21,10 +21,6 @@ exports.dygraphs = function(req,res){
 	res.render('dygraphs', {title: 'Dygraphs'})
 }
 
-exports.dygraphs2 = function(req,res){
-	res.render('dygraphs2', {title: 'Dygraphs2'})
-}
-
 exports.dygraphs_csv = function(req,res){
 	res.render('dygraphs_csv', {title: 'Dygraphs CSV'})
 }

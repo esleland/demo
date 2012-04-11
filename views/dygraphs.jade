@@ -1,10 +1,35 @@
-head
-	//script(type='text/javascript', src='../public/javascripts/dygraphs_combined.js')/* move to layout? */
-	script(type='text/javascript', src='http://dygraphs.com/dygraph-combined.js')/* move to layout? */
+//- append include_scripts
+  //- script(src='http://dygraphs.com/dygraph-combined.js')
+  //- script(src="http://dygraphs.com/dygraph-combined.js")
+  //- script(src='./public/javascripts/dygraph-combined.js')
+
 body
-	a(href='/') Index
-	p
-	#chart_div
-script
-	g = new Dygraph(document.getElementById('chart_div'), ("Date,Temperature\n" + "2008-05-07,75\n" + "2008-05-08,70\n" + "2008-05-09,80\n"), {title: 'Daily Temperatures in New York vs. San Francisco', ylabel: 'Temperature (F)',legend: 'always',labelsDivStyles: { 'textAlign': 'right' },showRangeSelector: true});
-	gviz_wrapper.date_graph.resize();
+  a(href='/') Go back to the index
+  p
+  #chart_div
+  //- script(src='http://dygraphs.com/dygraph-combined.js')
+  script(src='/javascripts/dygraph-combined.js')
+  script
+    g = new Dygraph(
+            document.getElementById("chart_div"),
+            [
+              [ new Date("2011/11/01"), 100 ],
+              [ new Date("2011/11/02"), 200 ],
+              [ new Date("2011/11/03"), 300 ],
+              [ new Date("2011/11/04"), 100 ],
+              [ new Date("2011/11/05"), 200 ],
+              [ new Date("2011/11/06"), 300 ],
+              [ new Date("2011/11/07"), 200 ],
+              [ new Date("2011/11/08"), 100 ]
+            ],
+            {
+              labels: [ 'Date', 'Value' ]
+            }
+        );
+
+    g.setAnnotations([{
+      series: 'Value',
+      x: Date.parse('2011/11/04'),
+      shortText: 'M',
+      text: 'Marker'
+    }]);
