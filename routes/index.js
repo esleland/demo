@@ -24,3 +24,9 @@ exports.dygraphs = function(req,res){
 exports.dygraphs_csv = function(req,res){
 	res.render('dygraphs_csv', {title: 'Dygraphs CSV'})
 }
+
+/*Table Pages*/
+
+exports.sortable_table = function(req,res){
+	res.render('sortable_table', {title: 'Sortable Table'})
+}

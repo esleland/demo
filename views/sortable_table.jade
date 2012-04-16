@@ -1,0 +1,38 @@
+head
+	link(rel='stylesheet', href='stylesheets/jquery-ui-1.8.18.custom.css')
+	link(rel='stylesheet', href='stylesheets/ui.jqgrid.css')
+	script(src='/javascripts/jquery-1.7.2.min.js')
+	script(src='/javascripts/i18n/grid.locale-en.js')
+	script(src='/javascripts/jquery.jqGrid.min.js')
+	script
+		$(function(){ 
+			$("#list").jqGrid({
+				url:'example.php',
+				datatype: 'xml',
+				mtype: 'GET',
+				colNames:['Selectd','Test Name', 'Last Update','Start Date','Tags','Notes'],
+				colModel :[ 
+					{name:'selected', index: 'selected', width: 50, align: 'center', formatter: 'checkbox', edittype: 'checkbox', editoptions: {value: 'Yes:No', defaultValue: 'Yes'}},
+					{name:'name', index:'name', width:150}, 
+					{name:'update', index:'update', width:80, align:'right'}, 
+					{name:'start', index:'start', width:80, align:'right'}, 
+					{name:'tags', index:'tags', width:150, align:'right'}, 
+					{name:'note', index:'note', width:150, sortable:false} 
+				],
+				pager: '#pager',
+				rowNum:10,
+				rowList:[10,20,30],
+				sortname: 'invid',
+				sortorder: 'desc',
+				viewrecords: true,
+				gridview: true,
+				caption: 'Tests'
+			}); 
+		});
+body
+	a(href='/') Index
+	h1(align='center') Welcome to Subway Labs - IV Spy
+	table(id='list')
+		tr
+			td
+	div(id='pager')

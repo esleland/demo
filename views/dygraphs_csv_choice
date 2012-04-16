@@ -1,0 +1,69 @@
+body
+  a(href='/') Go back to the index
+  p
+  #chart_capacity
+  p
+  #chart_energy
+  p
+  #chart_efficiency
+  p
+  #chart_voltage
+  script(src='/javascripts/dygraph-combined.js')
+  script(src='/javascripts/jquery-1.7.2.min.js')
+  script
+    var data_path = "/data/ESL009b_030612_NiMH_2000mAh_50dod_c.csv"
+    g1 = new Dygraph(
+      document.getElementById("chart_voltage"),
+      data_path,
+      {
+        title: 'Potential per cycle',
+        ylabel: 'Voltage (V)',
+        xlabel: 'Cycle number',
+        legend: 'always',
+        showRangeSelector: true,
+        visibility: [false, false, true, true, true, true, +
+          false, false, false, false, false, false, false, false]
+      }
+    );
+
+    g2 = new Dygraph(
+        document.getElementById("chart_efficiency"),
+        data_path,
+        {
+          title: 'Charge and energy efficiency per cycle',
+          ylabel: 'Efficiency',
+          xlabel: 'Cycle number',
+          legend: 'always',
+          showRangeSelector: true,
+          visibility: [false, false, false, false, false, false, +
+            true, true, false, false, false, false, false, false]
+        }
+      );
+
+    g3 = new Dygraph(
+        document.getElementById("chart_capacity"),
+        data_path,
+        {
+          title: 'Capacity per cycle',
+          ylabel: 'Capacity (Ah)',
+          xlabel: 'Cycle number',
+          legend: 'always',
+          showRangeSelector: true,
+          visibility: [false, false, false, false, false, false, +
+            false, false, true, true, false, false, false, false]
+        }
+      );
+
+      g3 = new Dygraph(
+          document.getElementById("chart_energy"),
+          data_path,
+          {
+            title: 'Energy per cycle',
+            ylabel: 'Capacity (Ah)',
+            xlabel: 'Cycle number',
+            legend: 'always',
+            showRangeSelector: true,
+            visibility: [false, false, false, false, false, false, +
+              false, false, false, false, true, true, false, false]
+          }
+        );
