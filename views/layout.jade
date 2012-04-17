@@ -4,5 +4,12 @@ html
     title= title
     link(rel='stylesheet', href='stylesheets/style.css')
     //block include_scripts
-  body!= body
-  
+  body!= body //the rest is from nodetuts
+    #main
+      #header
+        - if (session.user)
+          #user= 'Logged in as ' + session.user.login//not showing
+          #logout
+            a(href='/sessions/destroy') logout
+      - if (flash.warn)
+        p#warn=flash.warn

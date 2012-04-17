@@ -16,3 +16,12 @@ a {
 	width:80%;
 	height:300px;
 }
+
+#header {
+  float: left;
+  clear:both;
+}
+
+#user {
+  float: left;
+}
