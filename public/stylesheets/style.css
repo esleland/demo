@@ -12,16 +12,27 @@ a {
 	height: 500px;
 }
 
-#chart_capacity {
+.chart_div {
 	width:80%;
 	height:300px;
 }
 
-#header {
-  float: right;
-  clear:both;
+#logo {
+  width: 100%;
+  background-color: lightgray;
+  text-align: center;
 }
 
-#user {
-  float: right;
+#header {
+  width: 100%;
+  text-align: right;
+  clear: both;
+}
+
+
+#footer {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  background-color: lightgray;
 }

@@ -7,11 +7,13 @@ html
     //allign not working on image, not sure if layout format is correct
   body
     #header
-      img(src='/images/subwaylabs.jpg', height='100px', align='center')
       - if (session.user)
-        #user= 'Logged in as ' + session.user.login
-        #logout
-          a(href='/sessions/destroy') logout
+        user= 'Logged in as ' + session.user.login +' '
+        logout
+          a(href='/sessions/destroy') Log Out
     - if (flash.warn)
       p#warn=flash.warn
-    #container!=body
+    #logo
+      img(src='/images/subwaylabs.jpg', height='100px')
+   div!=body
+   #footer Copyright © 2012 Subway Labs, Inc
